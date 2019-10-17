@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
  before_action :authenticate_user!
 
   def index
@@ -16,7 +16,7 @@ class UserController < ApplicationController
   def update
     @user = resource
     if @user.update(user_params)
-      redirect_to account_user_path(user: @user)
+      redirect_to users_path
     else
       render :edit
     end

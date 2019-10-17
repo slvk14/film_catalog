@@ -1,0 +1,19 @@
+.col-xl-6.col-12
+  .box-content
+    %h4.box-title Users
+    / /.box-title
+    %table.table.table-striped.margin-bottom-10
+      %thead
+        %tr
+          %th{:style => "width:40%;"} Name
+          %th Options
+          %th Options
+      %tbody
+      - @users.each do |user|
+        %tr
+          %td 
+            = user.first_name
+          %td 
+            = user.last_name
+          %td 
+            = link_to "Edit", edit_user_path(user)
