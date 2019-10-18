@@ -22,6 +22,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user = resource
+    if @user.update_attribute(:active, false)
+      flash[:notice] = 'User was deactivated!'
+      redirect_to users_path
+    else
+      flash[:warning] = "User is already deactivated"
+      redirect to users_path
+    end
+  end
+
   private
 
   def collection
@@ -34,6 +45,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password,
-                                 :password_confirmation, :role)
+                                 :password_confirmation, :active, :role)
   end
 end
