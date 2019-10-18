@@ -33,6 +33,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def activate
+    @user = resource
+    if @user.update_attribute(:active, true)
+      flash[:notice] = 'User was activated!'
+      redirect_to users_path
+    else
+      flash[:warning] = "User is already activated"
+      redirect to users_path
+    end
+  end
+
   private
 
   def collection
