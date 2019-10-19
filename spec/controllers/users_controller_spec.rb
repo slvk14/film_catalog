@@ -9,10 +9,10 @@ RSpec.describe UsersController, type: :controller do
   describe 'GET index' do
     before :each do
         sign_in user
+        get 'index'
       end
 
     it 'should get index' do
-      get 'index'
       expect(response).to have_http_status(200)
     end
 
@@ -29,6 +29,17 @@ RSpec.describe UsersController, type: :controller do
 
     it 'should get index' do
       get 'edit'
+      expect(page).to have_content('Submit')
+    end
+  end
+
+  describe 'update action' do
+    before :each do
+        sign_in user
+      end
+
+    it 'changes first_name' do
+      user.update_attribute(:first_name, :)
       expect(page).to have_content('Submit')
     end
   end

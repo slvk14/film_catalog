@@ -34,10 +34,6 @@ class ApplicationPolicy
     user.admin?
   end
 
-  def activate
-    user.admin?
-  end
-
   class Scope
     attr_reader :user, :scope
 

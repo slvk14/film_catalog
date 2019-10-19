@@ -20,4 +20,8 @@ class UserPolicy < ApplicationPolicy
   def destroy?
     user.admin?
   end
+
+  def activate?
+    user.admin?
+  end
 end
