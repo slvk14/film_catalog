@@ -5,6 +5,8 @@ ruby '2.6.5'
 
 gem 'rails', '~> 6.0.0'
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'bootstrap', '~> 4.3.1'
+gem 'sprockets-rails'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5'
 gem 'webpacker', '~> 4.0'
@@ -15,6 +17,10 @@ gem 'devise'
 gem "pundit"
 gem "haml-rails", "~> 2.0"
 gem 'simple_form'
+gem 'jquery-rails'
+gem 'popper_js', '~> 1.14.5'
+gem 'coffee-rails'
+
 
 group :development, :test do
   gem 'factory_bot_rails'
