@@ -2,15 +2,19 @@ class ReviewsController < ApplicationController
   after_action :verify_authorized 
   
   def index
-    @reviews = collection
+    @reviews = current_user.reviews
+    authorize @reviews
   end
 
   def new
-    @review = parent.reviws.build
+    @review = movie.reviews.build
+    @review.user_id = current_user.id
+    authorize @review
   end
 
   def create
-    @review = parent.reviews.build
+    @review = movie.reviews.build(review_params)
+    authorize @review
     if @review.save
       flash.now[:notice] = 'Review saved!'
       redirect_to index_path
@@ -22,6 +26,7 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = resource
+    authorize @review
   end
 
   def update
@@ -52,15 +57,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def collection
-    current_user.reviews
-  end
-
-  def parent
-    current_user
-  end
-
-  def params
+  def review_params
     params.require(:review).permit(:rate, :description)
   end
 end

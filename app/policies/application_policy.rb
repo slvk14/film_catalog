@@ -7,15 +7,15 @@ class ApplicationPolicy
   end
 
   def index?
-    user.admin?
+    false
   end
 
   def show?
-    user.admin?
+    false
   end
 
   def create?
-    user.admin?
+    false
   end
 
   def new?
@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    user.admin?
+    false
   end
 
   def edit?
@@ -31,7 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    user.admin?
+    false
   end
 
   class Scope

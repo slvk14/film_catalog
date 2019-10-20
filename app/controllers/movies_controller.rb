@@ -3,6 +3,7 @@ class MoviesController < ApplicationController
   
 	def index
     @movies = Movie.search(params[:search])
+    authorize @movies
 	end
 
   def show

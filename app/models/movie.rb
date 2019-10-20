@@ -8,7 +8,7 @@ class Movie < ApplicationRecord
     if search
       find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
     else
-      find(:all)
+      Movie.all
     end
   end
 end
