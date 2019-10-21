@@ -1,1 +1,18 @@
-show movie
+%table.table.table-striped.margin-bottom-10
+  %thead
+    %tr
+      %th{:style => "width:40%;"} Title
+      %th Year
+      %th Actors
+      %th Country
+      %th Options
+  %tbody
+    %tr
+      %td 
+        = @movie.title
+      %td 
+        = @movie.year
+      %td 
+        = @movie.actors
+      %td 
+        = @movie.country

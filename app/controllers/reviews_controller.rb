@@ -1,20 +1,23 @@
 class ReviewsController < ApplicationController
-  after_action :verify_authorized 
+  before_action :load_reviewable
+  after_action :verify_authorized
   
   def index
-    @reviews = current_user.reviews
+    @reviewable = Movie.find(params[:movie_id])
+    @reviews = @reviewable.reviews
     authorize @reviews
   end
 
   def new
-    @review = movie.reviews.build
+    @review = @reviewable.reviews.new
     @review.user_id = current_user.id
     authorize @review
   end
 
   def create
-    @review = movie.reviews.build(review_params)
+    @review = @reviewable.reviews.build(review_params)
     authorize @review
+    byebug
     if @review.save
       flash.now[:notice] = 'Review saved!'
       redirect_to index_path
@@ -56,6 +59,11 @@ class ReviewsController < ApplicationController
   end
 
   private
+
+  def load_reviewable
+    resource, id = request.path.split('/')[1,2]
+    @reviewable = resource.singularize.classify.constantize.find(id)
+  end
 
   def review_params
     params.require(:review).permit(:rate, :description)

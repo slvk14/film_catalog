@@ -7,7 +7,8 @@ class MoviesController < ApplicationController
 	end
 
   def show
-    @user = User.find(params[:id])
+    @movie = Movie.find(params[:id])
+    authorize @movie
   end
 
   def renew
