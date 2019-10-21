@@ -6,13 +6,13 @@ ruby '2.6.5'
 gem 'rails', '~> 6.0.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'bootstrap', '~> 4.3.1'
+gem 'bootsnap', require: false
 gem 'sprockets-rails'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
-gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem "pundit"
 gem "haml-rails", "~> 2.0"
@@ -40,7 +40,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'rspec-rails',    '~> 3.8'
-  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1'
+  gem 'shoulda-matchers'
   gem 'rails-controller-testing'
   gem 'simplecov', require: false
   gem 'simplecov-rcov'
