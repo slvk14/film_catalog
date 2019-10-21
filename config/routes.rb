@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root to: 'static_pages#home'
   get 'static_pages/home', to: 'static_pages#home'
@@ -8,9 +10,9 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :users, only: [:show, :update, :edit, :index]
+  resources :users, only: %i[show update edit index]
 
-  resources :movies, only: [:index, :new, :show] do
+  resources :movies, only: %i[index new show] do
     resources :reviews
   end
 end

@@ -1,16 +1,18 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
- before_action :authenticate_user!
- after_action :verify_authorized 
+  before_action :authenticate_user!
+  after_action :verify_authorized
 
   def index
     @users = collection
     authorize @users
   end
- 
+
   def show
     @user = resource
     authorize @user
-  end 
+  end
 
   def edit
     @user = resource
@@ -33,7 +35,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'User was deactivated!'
       redirect_to users_path
     else
-      flash[:warning] = "User is already deactivated"
+      flash[:warning] = 'User is already deactivated'
       redirect to users_path
     end
   end
@@ -44,7 +46,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'User was activated!'
       redirect_to users_path
     else
-      flash[:warning] = "User is already activated"
+      flash[:warning] = 'User is already activated'
       redirect to users_path
     end
   end

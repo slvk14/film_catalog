@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :movie do
     title { Faker::Name }
-    year { Faker::Number.number(digits: 4)}
+    year { Faker::Number.number(digits: 4) }
     genre { Faker::Name }
     director { Faker::Name }
     actors { Faker::Name }

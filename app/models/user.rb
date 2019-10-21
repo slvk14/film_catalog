@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable, :trackable and :omniauthable
@@ -7,6 +9,6 @@ class User < ApplicationRecord
   enum role: %i[customer admin]
 
   has_many :reviews
-  
+
   has_one_attached :avatar
 end

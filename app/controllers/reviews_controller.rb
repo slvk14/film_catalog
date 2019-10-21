@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class ReviewsController < ApplicationController
   before_action :load_reviewable
   after_action :verify_authorized
-  
+
   def index
     @reviewable = Movie.find(params[:movie_id])
     @reviews = @reviewable.reviews
@@ -44,7 +46,7 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-     @review = resource
+    @review = resource
 
     if @review.delete
       flash.now[:notice] = 'Review deleted!'
@@ -61,7 +63,7 @@ class ReviewsController < ApplicationController
   private
 
   def load_reviewable
-    resource, id = request.path.split('/')[1,2]
+    resource, id = request.path.split('/')[1, 2]
     @reviewable = resource.singularize.classify.constantize.find(id)
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
@@ -5,9 +7,9 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'GET index' do
     before :each do
-        sign_in user
-        get 'index'
-      end
+      sign_in user
+      get 'index'
+    end
 
     it 'should get index' do
       expect(response).to have_http_status(200)
@@ -21,8 +23,8 @@ RSpec.describe UsersController, type: :controller do
 
   describe 'edit action' do
     before :each do
-        sign_in user
-      end
+      sign_in user
+    end
 
     it 'should get index' do
       get 'edit'
@@ -30,7 +32,7 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-   describe '#update' do
+  describe '#update' do
     let!(:user) { create(:admin) }
     let!(:params) { attributes_for(:user) }
 
@@ -38,7 +40,7 @@ RSpec.describe UsersController, type: :controller do
       before(:each) do
         sign_in user
       end
-    
+
       it 'update device' do
         params[:first_name] = 'Updated'
         put :update, params: { id: user.id, user: params }
@@ -46,12 +48,11 @@ RSpec.describe UsersController, type: :controller do
         expect(user.first_name).to eq 'Updated'
       end
     end
-  end 
-
+  end
 
   describe '#delete' do
     let!(:admin) { create(:admin) }
-    let!(:user) {create(:user)}
+    let!(:user) { create(:user) }
     let!(:params) { attributes_for(:user) }
 
     context 'with signed in user' do

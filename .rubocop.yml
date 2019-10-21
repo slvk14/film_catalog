@@ -1,0 +1,33 @@
+AllCops:
+  Exclude:
+    - config/initializers/secret_token.rb
+    - node_modules/node-sass/src/libsass/contrib/libsass.spec
+    - node_modules/node-sass/src/libsass/extconf.rb
+    - config/initializers/*.rb
+    - bin/*
+
+Rails:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+  IgnoredPatterns: ['\A#']
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/BlockLength:
+  Max: 50
+  ExcludedMethods: ['describe', 'context', 'config']
+  Exclude:
+    - db/schema.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/20190510134426_create_active_storage_tables.active_storage.rb
