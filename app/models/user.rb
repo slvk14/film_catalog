@@ -7,4 +7,6 @@ class User < ApplicationRecord
   enum role: %i[customer admin]
 
   has_many :reviews
+  
+  has_one_attached :avatar
 end

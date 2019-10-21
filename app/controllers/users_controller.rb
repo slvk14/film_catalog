@@ -1,21 +1,25 @@
 class UsersController < ApplicationController
- before_action :authenticate_user!, :configure_permitted_parameters
+ before_action :authenticate_user!
  after_action :verify_authorized 
 
   def index
     @users = collection
+    authorize @users
   end
  
   def show
     @user = resource
+    authorize @user
   end 
 
   def edit
     @user = resource
+    authorize @user
   end
 
   def update
     @user = resource
+    authorize @user
     if @user.update(user_params)
       redirect_to users_path
     else
@@ -57,10 +61,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password,
-                                 :password_confirmation, :active, :role)
-  end
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
+                                 :password_confirmation, :active, :role, :avatar)
   end
 end
