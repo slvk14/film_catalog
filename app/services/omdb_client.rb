@@ -1,12 +1,12 @@
-class OdbClient
+class OmdbClient
 	def initialize
       @api_key = RCreds.fetch(:omdb, :api_key)
-      @root_url = 
+      @root_url = "http://www.omdbapi.com"
 	end
 
-    def all(params = {})
-    	RestClient.get(@root_url, params base_params.merge!(params))
-    end
+    # def all(params = {})
+    # 	RestClient.get(@root_url, params base_params.merge!(params))
+    # end
 
     def search(title, search_params = {})
     	all(search_params.merge!(s: title))
@@ -18,6 +18,6 @@ class OdbClient
     private
 
     def base_params
-    	{ api_key: @api_}
+    	{ api_key: @api_key}
     end
 end

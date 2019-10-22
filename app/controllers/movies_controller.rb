@@ -13,5 +13,12 @@ class MoviesController < ApplicationController
     authorize @movie
   end
 
-  def renew; end
+  def search
+    @movie = OmdbClient.search(params[:title, :search_params])
+  end
+
+  private 
+
+  def save_to_db
+  end
 end

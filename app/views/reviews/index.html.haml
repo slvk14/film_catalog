@@ -1,3 +1,21 @@
-%h1 Reviews#index
-%p Find me in app/views/reviews/index.html.haml
-= link_to "Add review", new_movie_review_path(@reviewable)
+.col-xl-6.col-12
+  .box-content
+    %h4.box-title Reviews
+    / /.box-title
+    %table.table.table-striped.margin-bottom-10
+      %thead
+        %tr
+          %th{ style: "width:40%;" } Rate
+          %th{ colspan: 2, style: "width:20%;" } Description        
+      %tbody
+      - @reviews.each do |review|
+        %tr
+          %td 
+            = review.rate
+          %td 
+            = review.description          
+          %td
+            = #link_to "Edit", edit_movie_review_path
+          %td
+            = #link_to "Delete", review_path(review), method: :delete, data: {confirm: "Are you sure?"}
+  = link_to "Add review", new_movie_review_path
