@@ -18,7 +18,6 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @review = @movie.reviews.build(review_params)
     authorize @review
-    byebug
     if @review.save
       flash.now[:notice] = 'Review saved!'
       redirect_to root_path
@@ -57,11 +56,12 @@ class ReviewsController < ApplicationController
 
   def show_all
     @reviews = Review.all
+    authorize @reviews
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:rate, :description).merge!(user_id: current_user.id)
+    params.require(:review).permit(:rate, :description, :content).merge!(user_id: current_user.id)
   end
 end

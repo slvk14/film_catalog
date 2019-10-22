@@ -4,5 +4,7 @@ class Review < ApplicationRecord
   belongs_to :user
   belongs_to :movie, polymorphic: true, optional: true
 
-  validates :rate, :description, presence: true
+  validates :rate, :content, presence: true
+
+  has_rich_text :content
 end
