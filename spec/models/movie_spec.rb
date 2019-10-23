@@ -6,43 +6,43 @@ RSpec.describe Movie, type: :model do
     let!(:movie) { create(:movie) }
     
     describe 'factory' do
-      it 'is truthy' { is_expected.to be_truthy }
+      it { is_expected.to be_truthy }
     end    
 
     describe 'title' do
-      it 'can not be null' { is_expected.to validate_presence_of(:first_name) }
+      it { is_expected.to validate_presence_of(:first_name) }
     end
 
     describe 'year' do
-      it 'can not be null' { is_expected.to validate_presence_of(:year) }
+      it { is_expected.to validate_presence_of(:year) }
     end
 
     describe 'genre' do
-      it 'can not be null' { is_expected.to validate_presence_of(:genre) }
+      it { is_expected.to validate_presence_of(:genre) }
     end
 
     describe 'director' do
-      it 'can not be null' { is_expected.to validate_presence_of(:director) }
+      it { is_expected.to validate_presence_of(:director) }
     end
 
     describe 'actors' do
-      it 'can not be null' { is_expected.to validate_presence_of(:actors) }
+      it  { is_expected.to validate_presence_of(:actors) }
     end
 
     describe 'plot' do
-      it 'can not be null' { is_expected.to validate_presence_of(:plot) }
+      it { is_expected.to validate_presence_of(:plot) }
     end
 
     describe 'country' do
-      it 'can not be null' { is_expected.to validate_presence_of(:country) }
+      it { is_expected.to validate_presence_of(:country) }
     end
 
     describe 'imdb_rating' do
-      it 'can not be null' { is_expected.to validate_presence_of(:imdb_rating) }
+      it { is_expected.to validate_presence_of(:imdb_rating) }
     end
 
     describe 'metascore' do
-      it 'can not be null' { is_expected.to validate_presence_of(:metascore) }
+      it { is_expected.to validate_presence_of(:metascore) }
     end  
   end
 end

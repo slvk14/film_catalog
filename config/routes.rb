@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   resources :movies, only: %i[index new show] do
     resources :reviews
   end
+
+  namespace :admin do
+    resources :movies
+  end
 end

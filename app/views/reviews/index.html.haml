@@ -15,7 +15,7 @@
           %td 
             = review.content         
           %td
-            = #link_to "Edit", edit_movie_review_path
+            = link_to "Edit", edit_movie_review_path(id: review.id)
           %td
-            = #link_to "Delete", review_path(review), method: :delete, data: {confirm: "Are you sure?"}
+            = link_to "Delete", movie_review_path(id: review.id), method: :delete, data: {confirm: "Are you sure?"}
   = link_to "Add review", new_movie_review_path

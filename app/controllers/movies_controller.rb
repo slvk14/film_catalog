@@ -13,9 +13,9 @@ class MoviesController < ApplicationController
     authorize @movie
   end
 
-  def search
-    @movie = OmdbClient.search(params[:title, :search_params])
-  end
+  # def api_search
+  #   @movie = OmdbClient.
+  # end
 
   private 
 

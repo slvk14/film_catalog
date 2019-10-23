@@ -6,15 +6,15 @@ RSpec.describe Review, type: :model do
     let!(:review) { create(:review) }
     
     describe 'factory' do
-      it 'is truthy' { is_expected.to be_truthy }
+      it { is_expected.to be_truthy }
     end    
 
     describe 'rate' do
-      it 'can not be null' { is_expected.to validate_presence_of(:rate) }
+      it { is_expected.to validate_presence_of(:rate) }
     end
 
     describe 'description' do
-      it 'can not be null' { is_expected.to validate_presence_of(:description) }
+      it { is_expected.to validate_presence_of(:description) }
     end
   end
 end

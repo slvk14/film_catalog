@@ -1,0 +1,5 @@
+.card-content
+  .form-group
+    = form_for [ admin_movies_path, method: :get ] do |f|
+      = f.input :title      
+      = f.button :submit, "Submit", class: "btn btn-primary waves-effect waves-light"
