@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-class MoviePolicy < ApplicationPolicy
+class Admin::MoviePolicy < ApplicationPolicy
   attr_reader :movie, :record
 
   def index?
-    true
+    user.admin?
   end
 
   def show?
-    true
+    user.admin?
   end
 end

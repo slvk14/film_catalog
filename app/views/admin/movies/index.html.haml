@@ -1,1 +1,16 @@
-= render 'admin/movies/form'
+.container
+  %h1 Search
+  = render partial: "admin/movies/form"
+  %br/
+  - if @movie
+    = simple_form_for :movie, url: {action: "create"}  do |f|
+          = f.input :title, input_html: { value: @movie["Title"] }
+          = f.input :year, input_html: { value: @movie["Year"] }
+          = f.input :genre, input_html: { value: @movie["Genre"] }
+          = f.input :director, input_html: { value: @movie["Director"] }
+          = f.input :actors, as: :text, input_html: { value: @movie["Actors"] }
+          = f.input :plot, as: :text, input_html: { value: @movie["Plot"] }
+          = f.input :metascore, input_html: { value: @movie["Metascore"] }
+          = f.input :imdbRating, input_html: { value: @movie["imdbRating"] }
+          = f.input :imdb_id, as: :hidden, input_html: { value: @movie["imdbID"] }
+          = f.button :submit, "Save", class: "btn-primary"

@@ -1,29 +1,21 @@
 class OmdbClient
-  include Singletone
-
-	def initialize
-      @api_key = RCreds.fetch(:omdb, :api_key)
-      @root_url = "http://www.omdbapi.com"
-	end
-
-  def all(params = {})
- 	  RestClient.get(@root_url, params: params.merge!(base_params))
+  include Singleton
+  def initialize
+    @apikey = RCreds.fetch(:omdb, :apikey)
+    @root_url = 'http://www.omdbapi.com'
   end
 
-  def search(title, search_params = {})
-  	all(search_params.merge!(s: title))
+  def by_title(title:)
+    all(t: String(title))
   end
-  
-  def by_id(id)
-    all(i: id)
-  end
-
-  # def by_title(title)
-  # end
 
   private
+  
+  def all(search_params = {})
+    JSON.parse(RestClient.get(@root_url, params: search_params.merge!(base_params)))
+  end
 
   def base_params
-  	{ api_key: @api_key}
+    { apikey: @apikey }
   end
 end
