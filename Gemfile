@@ -26,6 +26,7 @@ gem 'webpacker', '~> 4.0'
 gem 'r_creds', '~> 1.0'
 gem 'rest-client'
 gem 'httparty', '~> 0.13.7'
+gem 'blueprinter'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

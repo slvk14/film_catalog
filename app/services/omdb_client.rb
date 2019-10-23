@@ -1,7 +1,7 @@
 class OmdbClient
   include Singleton
   def initialize
-    @apikey = RCreds.fetch(:omdb, :apikey)
+    @apikey = RCreds.fetch(:omdb, :api_key)
     @root_url = 'http://www.omdbapi.com'
   end
 

@@ -65,6 +65,7 @@ GEM
       execjs
     bcrypt (3.1.13)
     bindex (0.8.1)
+    blueprinter (0.6.0)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     bootstrap (4.3.1)
@@ -343,6 +344,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  blueprinter
   bootsnap
   bootstrap (~> 4.3.1)
   byebug

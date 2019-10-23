@@ -19,4 +19,8 @@ Rails.application.routes.draw do
     resources :movies
     resources :reviews, only: [:index, :edit, :update, :destroy]
   end
+
+  namespace :api do
+    resources :movies
+  end
 end
