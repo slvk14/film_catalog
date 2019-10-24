@@ -21,7 +21,12 @@ class Admin::MoviesController < ApplicationController
       redirect_to admin_movies_path
     end
   end
-
+  
+  def refresh_movies
+    # call worker
+    # notify
+    # async
+  end
   private
 
   def movie_params

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
-
+require 'sidekiq/web'
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
   root to: 'movies#index'
   get 'static_pages/home', to: 'static_pages#home'
   get 'static_pages/contact', to: 'static_pages#contact'
