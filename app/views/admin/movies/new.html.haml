@@ -1,4 +1,4 @@
-= simple_form_for :movie, url: {action: "create"}  do |f|
+= simple_form_for :movie, url: {action: "create"} do |f|
   = f.input :title, input_html: { value: @movie["Title"] }
   = f.input :year, input_html: { value: @movie["Year"] }
   = f.input :genre, input_html: { value: @movie["Genre"] }
