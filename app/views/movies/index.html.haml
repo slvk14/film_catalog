@@ -1,13 +1,12 @@
 .col-xl-6.col-12
   .box-content
-    %h4.box-title Movies
+    %h4.box-title.text-center Movies
     / /.box-title
     %table.table.table-striped.margin-bottom-10
       %thead
         %tr
           %th{:style => "width:40%;"} Title
           %th Year
-          %th Actors
           %th Country
           %th Options
       %tbody
@@ -17,8 +16,6 @@
             = movie.title
           %td 
             = movie.year
-          %td 
-            = movie.actors
           %td 
             = movie.country
             

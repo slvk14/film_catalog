@@ -1,0 +1,72 @@
+.logo-motto {
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 2px 4px;
+  background: darkblue;
+  color: white;
+}
+
+.nav-link,
+.navbar-brand {
+  cursor: pointer;
+  color: #f4f4f4;
+  transition: .4s ease-in-out;
+}
+.nav-link {
+  margin-right: 1em;
+  margin-left: 5rem;
+
+  &:hover {
+    color: #f97300;
+    background: #f4f4f4;
+  }
+}
+
+.logo-pic {
+  width: 35px;
+}
+
+.header-join {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.header-join-sign-up,
+.header-join-log-in,
+.header-join-log-out,
+.header-join-account {
+  font-weight: 700;
+  display: inline-block;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  padding: 6px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+}
+
+.header-join-sign-up,
+.header-join-account {
+  background-color: #f97300;
+
+  &:hover {
+    transition: .4s ease-in-out;
+    text-decoration: none;
+    color: darkorange;
+    background-color: #fff;
+  }
+}
+
+.header-join-log-in {
+  background-color: darkblue;
+
+  &:hover {
+    transition: .4s ease-in-out;
+    text-decoration: none;
+    color: #f97300;
+    border-radius: 47%;
+    background-color: #fff;
+  }
+}

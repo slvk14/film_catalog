@@ -1,0 +1,23 @@
+%footer.navbar.footer
+  .footer-container
+    %span.list-item.col-sm-3
+      = link_to "SpaceX", root_path
+    .copyright.col-sm-5
+      ©
+      = Time.zone.now.year
+      IF-097.Ruby.
+      &nbsp
+      = link_to "Terms of Service & Privacy Policy. ", "#", class: "rights"
+      &nbsp
+      All Rights Reserved.
+    %ul.footer-list-social-media.col-sm-3
+      %li.list-item Subscribe Us:
+      %li.list-item
+        = link_to "#" do
+          = image_tag "twitter.png", class: "logo-social-media"
+      %li.list-item
+        = link_to "#" do
+          = image_tag "facebook.png", class: "logo-social-media"
+      %li.list-item
+        = link_to "#" do
+          = image_tag "instagram.png", class: "logo-social-media"

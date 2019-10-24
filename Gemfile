@@ -27,6 +27,7 @@ gem 'r_creds', '~> 1.0'
 gem 'rest-client'
 gem 'httparty', '~> 0.13.7'
 gem 'blueprinter'
+gem 'rails-assets-font-awesome', '4.6.3', source: 'https://rails-assets.org'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

@@ -1,6 +1,13 @@
 class Admin::MoviesController < ApplicationController
   def index
-    @movie = OmdbClient.instance.by_title(title: params[:title])
+    @movies = OmdbClient.instance.by_title(title: params[:title])['Search']
+  end
+
+  def show
+  end
+
+  def new
+    @movie = OmdbClient.instance.by_id(id: params[:id])
   end
 
   def create
