@@ -29,6 +29,7 @@ gem 'httparty', '~> 0.13.7'
 gem 'blueprinter'
 gem 'rails-assets-font-awesome', '4.6.3', source: 'https://rails-assets.org'
 gem 'sidekiq'
+gem "sidekiq-cron", "~> 1.1"
 gem 'redis'
 
 group :development, :test do

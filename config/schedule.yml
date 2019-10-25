@@ -1,0 +1,4 @@
+update_movies_attributes:
+  cron: "* * * * *"
+  class: "ScheduledMovieReviewerJob"
+  queue: default
