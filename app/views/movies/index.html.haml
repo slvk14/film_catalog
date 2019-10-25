@@ -1,7 +1,9 @@
 .col-xl-6.col-12
   .box-content
     %h4.box-title.text-center Movies
-    / /.box-title
+    - if current_user.admin?
+      .btn.btn-danger
+        = link_to "Refresh Movies", admin_refresh_path
     %table.table.table-striped.margin-bottom-10
       %thead
         %tr

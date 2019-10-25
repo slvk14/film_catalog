@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :movies
     resources :reviews, only: [:index, :edit, :update, :destroy]
+    get '/refresh', to: 'movies#refresh_movies'
   end
 
   namespace :api do

@@ -23,10 +23,15 @@ class Admin::MoviesController < ApplicationController
   end
   
   def refresh_movies
-    # call worker
-    # notify
-    # async
+    if ScheduledMovieReviewerJob.new.perform_now
+      flash.now[:success] = 'Movies were updated'
+      redirect_to root_path
+    else 
+      flash.now[:warning] = 'Movies were not updated'
+      redirect_to root_path
+    end
   end
+
   private
 
   def movie_params
