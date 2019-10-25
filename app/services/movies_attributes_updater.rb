@@ -11,7 +11,7 @@ class MoviesAttributesUpdater
     update_movies_atributes
   end
 
-  private
+
 
   def prepare_imdb_ids
     @omdb_ids = Movie.all.pluck(:imdb_id)
@@ -24,5 +24,9 @@ class MoviesAttributesUpdater
   end
 
   def update_movies_atributes
+    @omdb_movies.each do |params|
+      Movie.find_by(imdb_id: params["imdbID"]).update(title: params['Title'], genre: params['Genre'], year: params['Year'], director: params['Director'],
+                   actors: params['Actors'], plot: params['Plot'], metascore: params['Metascore'], imdb_rating: params['imdbRating'], imdb_id: params['imdbID'])
+    end
   end
 end

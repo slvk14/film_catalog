@@ -2,7 +2,6 @@ class ScheduledMovieReviewerJob < ApplicationJob
   queue_as :default
 
   def perform
-    #MoviesAttributesUpdater.new.call
-    p "Hello World"
+    MoviesAttributesUpdater.new.call
   end
 end
