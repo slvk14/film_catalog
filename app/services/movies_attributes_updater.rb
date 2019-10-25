@@ -24,9 +24,16 @@ class MoviesAttributesUpdater
   end
 
   def update_movies_atributes
-    @omdb_movies.each do |params|
-      Movie.find_by(imdb_id: params["imdbID"]).update(title: params['Title'], genre: params['Genre'], year: params['Year'], director: params['Director'],
-                   actors: params['Actors'], plot: params['Plot'], metascore: params['Metascore'], imdb_rating: params['imdbRating'], imdb_id: params['imdbID'])
+    @omdb_movies.each do |movie|
+      Movie.find_by(imdb_id: movie["imdbID"]).update(title: movie['Title'], 
+                                                     genre: movie['Genre'], 
+                                                     year: movie['Year'], 
+                                                     director: movie['Director'],
+                                                     actors: movie['Actors'], 
+                                                     plot: movie['Plot'], 
+                                                     metascore: movie['Metascore'], 
+                                                     imdb_rating: movie['imdbRating'], 
+                                                     imdb_id: movie['imdbID'])
     end
   end
 end
