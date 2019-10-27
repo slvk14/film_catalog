@@ -8,12 +8,12 @@
       - if user_signed_in?
         %li
           = link_to "Movies", root_path , class: "nav-link"
-        - if current_user.admin?
+        - if user_signed_in? && current_user.admin?
           %li
           = link_to "Search", admin_movies_path, class: "nav-link"
   .header-join
     - if user_signed_in?
-      = link_to "Account", '#', class: "header-join-account"
+      = link_to "Account", user_path(current_user), class: "header-join-account"
       .text-white
         or
       = link_to "Log Out", destroy_user_session_path, method: :delete, class: "header-join-log-out"

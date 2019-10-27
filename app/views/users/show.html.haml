@@ -1,3 +1,46 @@
-user info
-
-<%= form.file_field :attachments, multiple: true, direct_upload: true %>
+.container
+  .row.small-spacing
+    .col-md-3.col-xs-12
+      .box-content.bordered.primary.margin-bottom-20
+        .profile-avatar
+          - if current_user.avatar.attached?
+            = image_tag url_for(current_user.avatar)
+          - else
+            = image_tag "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png" 
+        %h3
+          %strong.user_name
+            #{current_user.first_name} #{current_user.last_name} 
+    .col-md-9.col-xs-12
+      .row
+        .col-xs-12
+          .box-content.card
+            %h4.box-title
+              %i.fa.fa-user.ico>
+              About
+            .card-content
+              .row
+                .col-md-6
+                  .row
+                    .col-xs-5
+                      %label First Name:
+                    .col-xs-7 #{current_user.first_name}
+                .col-md-6
+                  .row
+                    .col-xs-5
+                      %label Last Name:
+                    .col-xs-7 #{current_user.last_name}
+                .col-md-6
+                  .row
+                    .col-xs-5
+                      %label Email:
+                    .col-xs-7 #{current_user.email}
+                .col-md-6
+                  .row
+                    .col-xs-5
+                      %label Created At:
+                    .col-xs-7 #{current_user.created_at.to_date}
+                    .col-xs-7 #{current_user.created_at.strftime("%H:%M")}
+                .col-md-6
+                  .row
+                    .col-xs-5
+                      = link_to "Edit Profile", edit_user_path

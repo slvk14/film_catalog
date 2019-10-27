@@ -1,28 +1,28 @@
-.col-xl-6.col-12
-  .box-content
-    %h4.box-title.text-center Movies
-    - if current_user.admin?
-      .btn.btn-danger
-        = link_to "Refresh Movies", admin_refresh_path
-    %table.table.table-striped.margin-bottom-10
-      %thead
-        %tr
-          %th{:style => "width:40%;"} Title
-          %th Year
-          %th Country
-          %th Options
-      %tbody
-      - @movies.each do |movie|
-        %tr
-          %td 
-            = movie.title
-          %td 
-            = movie.year
-          %td 
-            = movie.country
-            
-        
-            
-
-
-  
+%h2 Movies:
+#movies_index.container
+  .row
+    - @movies.each do |movie|
+      .col-md-3
+        .card.mb-4.shadow-sm
+          .thumbnail
+            %img{:alt => "Lights", :src => "https://m.media-amazon.com/images/M/MV5BOTYwZmQwY2MtMzkwMC00ZjllLTg2YWItNzg1MzEzOThjYTkxXkEyXkFqcGdeQXVyMTA1MTY4NTkz._V1_SX300.jpg", :style => "width:100%"}/
+          .card-body
+            %p.card-text
+              %h5
+                = movie.title
+              %strong Ganre: 
+              = movie.genre
+              %br/
+              %strong Year:
+              = movie.year
+              %br/
+              %strong Imdb rating:
+              = movie.imdb_rating
+              %br/
+              %strong Metascore rating:
+              = movie.metascore
+          .d-flex.justify-content-between.align-items-center
+            .btn-group
+              %button.btn.btn-sm.btn-outline-secondary{:type => "button"} View
+              %button.btn.btn-sm.btn-outline-secondary{:type => "button"} Edit
+            %small.text-muted 9 mins
