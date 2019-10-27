@@ -1,16 +1,16 @@
-%h2 Movies:
 #movies_index.container
   .row
     - @movies.each do |movie|
       .col-md-3
         .card.mb-4.shadow-sm
-          .thumbnail
-            %img{:alt => "Lights", :src => "https://m.media-amazon.com/images/M/MV5BOTYwZmQwY2MtMzkwMC00ZjllLTg2YWItNzg1MzEzOThjYTkxXkEyXkFqcGdeQXVyMTA1MTY4NTkz._V1_SX300.jpg", :style => "width:100%"}/
-          .card-body
+          .img-fluid
+            = link_to image_tag(movie.poster_url, :class => 'movie_poster')
+          .card-body.my-0.py-0
             %p.card-text
-              %h5
-                = movie.title
-              %strong Ganre: 
+              %h6
+                %strong
+                  = movie.title
+              %strong Genre: 
               = movie.genre
               %br/
               %strong Year:
@@ -21,8 +21,7 @@
               %br/
               %strong Metascore rating:
               = movie.metascore
-          .d-flex.justify-content-between.align-items-center
+          .d-flex.justify-content-between.align-items-center.mt-0.pt-0
             .btn-group
-              %button.btn.btn-sm.btn-outline-secondary{:type => "button"} View
-              %button.btn.btn-sm.btn-outline-secondary{:type => "button"} Edit
-            %small.text-muted 9 mins
+              = link_to "View", movie_path(movie), class: "button btn btn-sm btn-outline-secondary" 
+      

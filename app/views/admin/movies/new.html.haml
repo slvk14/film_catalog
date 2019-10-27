@@ -9,4 +9,5 @@
   = f.input :metascore, input_html: { value: @movie["Metascore"] }
   = f.input :imdb_rating, input_html: { value: @movie["imdbRating"] }
   = f.input :imdb_id, as: :hidden, input_html: { value: @movie["imdbID"] }
+  = f.input :poster_url, as: :hidden, input_html: { value: @movie["Poster"] }
   = f.button :submit, "Save", class: "btn-primary"

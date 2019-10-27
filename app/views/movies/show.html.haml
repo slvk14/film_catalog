@@ -1,18 +1,20 @@
-%table.table.table-striped.margin-bottom-10
-  %thead
-    %tr
-      %th{:style => "width:40%;"} Title
-      %th Year
-      %th Actors
-      %th Country
-      %th Options
-  %tbody
-    %tr
-      %td 
+.card.mb-4.shadow-sm
+  .img-fluid
+    = link_to image_tag(@movie.poster_url, :class => 'movie_poster')
+  .card-body.mt-0.pt-0
+    %p.card-text
+      %h6
         = @movie.title
-      %td 
-        = @movie.year
-      %td 
-        = @movie.actors
-      %td 
-        = @movie.country
+      %strong Genre: 
+      = @movie.genre
+      %br/
+      %strong Year:
+      = @movie.year
+      %br/
+      %strong Imdb rating:
+      = @movie.imdb_rating
+      %br/
+      %strong Metascore rating:
+      = @movie.metascore
+
+      

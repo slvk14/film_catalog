@@ -1,4 +1,33 @@
-.col-xl-6.col-12
-  .box-content.card.white
-    %h4.box-title Edit user
-    = render 'form'
+%h1 Edit Profile
+%hr/
+.row
+  .col-md-3
+    .text-center
+      .profile-avatar
+        - if current_user.avatar.attached?
+          = image_tag url_for(current_user.avatar)
+        - else
+          = image_tag "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png"
+      %h3
+        %strong.user_name
+          #{current_user.first_name} #{current_user.last_name} 
+  .col-md-9.personal-info
+    = simple_form_for current_user, url: user_path, html: { method: :put } do |f|
+      .form-group
+        = f.input :first_name, class: 'form-control'
+      .form-group
+        = f.input :last_name, class: 'form-control'
+      .form-group
+        = f.input :email, class: 'form-control'
+      .form-group
+        = f.input :avatar, label: 'Profile photo'
+      .form-group
+        = f.submit "Save changes", class: "submit-button btn btn-large btn-primary"
+    = simple_form_for current_user, url: user_path, html: { method: :put } do |f|
+      .form-group
+        = f.input :password, class: 'form-control'
+      .form-group
+        = f.input :password_confirmation, class: 'form-control'
+      .form-group
+        = f.submit "Change password", class: "submit-button btn btn-large btn-primary"
+%hr/

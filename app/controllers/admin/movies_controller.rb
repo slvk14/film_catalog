@@ -37,6 +37,6 @@ class Admin::MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:title, :genre, :year, 
                  :release_date, :director, :actors, :plot, 
-                 :metascore, :imdb_rating, :imdb_id, :country)
+                 :metascore, :imdb_rating, :imdb_id, :country, :poster_url)
   end
 end
