@@ -55,4 +55,16 @@
                 .col-md-6
                   .row
                     .col-xs-5
-                      = link_to "Edit Profile", edit_user_path
+                      = link_to "Edit Profile", edit_user_path, class: "button btn btn-sm btn-outline-secondary"
+                .col-md-6
+                  .row
+                    - if @user.active?
+                      .col-xs-5
+                        = link_to "Deactivate", user_path, method: :delete, class: "button btn btn-sm btn-danger"
+                    - else
+                      .col-xs-5
+                        = link_to "Activate", user_activate_path(user_id: @user.id), class: "button btn btn-sm btn-success"
+  - if current_user.admin?
+    .row
+      .col.text-center
+        = link_to "All Users", users_path, class: "button btn btn-sm btn-primary"

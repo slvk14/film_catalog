@@ -42,7 +42,8 @@ class UsersController < ApplicationController
   end
 
   def activate
-    @user = resource
+    @user = User.find(params[:user_id])
+    authorize @user
     if @user.update_attribute(:active, true)
       flash[:notice] = 'User was activated!'
       redirect_to users_path

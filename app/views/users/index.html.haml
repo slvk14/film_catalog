@@ -7,7 +7,7 @@
         %tr
           %th{:style => "width:40%;"} First name
           %th{:style => "width:40%;"} Last name
-          %th Options
+          %th{ colspan: 2 } Options
       %tbody
       - @users.each do |user|
         %tr
@@ -16,4 +16,4 @@
           %td 
             = user.last_name
           %td 
-            = link_to "Edit", edit_user_path(user)
+            = link_to "Show", user_path(user)
