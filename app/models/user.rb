@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :watch_later_movies
   has_many :movies, through: :watch_later_movies
 
+  validates :first_name, :last_name, :email, presence: true
 
   has_one_attached :avatar
 end
