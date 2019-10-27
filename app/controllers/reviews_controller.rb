@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
   after_action :verify_authorized
 
   def index
@@ -34,6 +35,7 @@ class ReviewsController < ApplicationController
 
   def update
     @review = resource
+    authorize @review
     if @review.update(review_params)
       flash.now[:notice] = 'Review updated!'
       redirect_to index_path
@@ -45,18 +47,13 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = resource
-
+    authorize @review
     if @review.delete
       flash.now[:notice] = 'Review deleted!'
     else
       flash.now[:error] = 'Failed to delete this review!'
     end
     redirect_to index_path
-  end
-
-  def show_all
-    @reviews = Review.all
-    authorize @reviews
   end
 
   private

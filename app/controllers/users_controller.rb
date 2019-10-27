@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   after_action :verify_authorized
 
   def index
-    @users = collection
+    @users = User.all
     authorize @users
   end
 
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     @user = resource
     authorize @user
     if @user.update(user_params)
-      redirect_to users_path
+      redirect_to user_path
     else
       render :edit
     end
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user = resource
+    authorize @user
     if @user.update_attribute(:active, false)
       flash[:notice] = 'User was deactivated!'
       redirect_to users_path
@@ -52,10 +53,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def collection
-    User.all
-  end
 
   def resource
     User.find(params[:id])

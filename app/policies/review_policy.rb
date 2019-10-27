@@ -16,7 +16,7 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    user.admin? || user.id == record.id
   end
 
   def edit?
@@ -24,10 +24,6 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
-  end
-
-  def show_all?
-    user.admin?
+    user.admin? || user.id == record.id
   end
 end

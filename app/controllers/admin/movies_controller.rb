@@ -1,9 +1,8 @@
 class Admin::MoviesController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @movies = OmdbClient.instance.by_title(title: params[:title])['Search']
-  end
-
-  def show
   end
 
   def new
@@ -12,7 +11,6 @@ class Admin::MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(movie_params)
-    authorize @movie
     if @movie.save
       flash.now[:success] = 'Movie is saved!'
       redirect_to root_path

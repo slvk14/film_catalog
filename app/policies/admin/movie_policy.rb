@@ -7,11 +7,15 @@ class Admin::MoviePolicy < ApplicationPolicy
     user.admin?
   end
 
-  def show?
-    user.admin?
+  def new?
+    create?
   end
 
   def create?
   	user.admin?
+  end
+
+  def refresh_movies?
+    user.admin?
   end
 end
