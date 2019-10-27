@@ -1,18 +1,18 @@
 %h1 Edit Profile
 %hr/
 .row
-  .col-md-3
+  .col-md-auto
     .text-center
       .profile-avatar
-        - if current_user.avatar.attached?
-          = image_tag url_for(current_user.avatar)
+        - if @user.avatar.attached?
+          = image_tag @user.avatar.variant(resize: "200x200!")
         - else
-          = image_tag "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png"
+          = gravatar_image_tag('junk', :alt => 'Github Default Gravatar', :gravatar => { :default => 'https://assets.github.com/images/gravatars/gravatar-140.png' })
       %h3
         %strong.user_name
-          #{current_user.first_name} #{current_user.last_name} 
-  .col-md-9.personal-info
-    = simple_form_for current_user, url: user_path, html: { method: :put } do |f|
+          #{@user.first_name} #{@user.last_name} 
+  .col-md-6.personal-info
+    = simple_form_for @user, url: user_path, html: { method: :put } do |f|
       .form-group
         = f.input :first_name, class: 'form-control'
       .form-group
@@ -23,7 +23,7 @@
         = f.input :avatar, label: 'Profile photo'
       .form-group
         = f.submit "Save changes", class: "submit-button btn btn-large btn-primary"
-    = simple_form_for current_user, url: user_path, html: { method: :put } do |f|
+    = simple_form_for @user, url: user_path, html: { method: :put } do |f|
       .form-group
         = f.input :password, class: 'form-control'
       .form-group

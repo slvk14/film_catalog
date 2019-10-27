@@ -1,45 +1,57 @@
-.container
+.container.text-center
   .row.small-spacing
     .col-md-3.col-xs-12
-      .box-content.bordered.primary.margin-bottom-20
-        .profile-avatar
-          - if current_user.avatar.attached?
-            = image_tag url_for(current_user.avatar)
+      .box-content.mb-2
+        .profile-avatar.mb-5
+          - if @user.avatar.attached?
+            = image_tag @user.avatar.variant(resize: "200x200!")
           - else
-            = image_tag "https://cdn1.iconfinder.com/data/icons/rcons-user-action/512/user-512.png" 
+            = gravatar_image_tag('junk', :alt => 'Github Default Gravatar', :gravatar => { :default => 'https://assets.github.com/images/gravatars/gravatar-140.png' })
         %h3
           %strong.user_name
-            #{current_user.first_name} #{current_user.last_name} 
-    .col-md-9.col-xs-12
+            #{@user.first_name} #{@user.last_name} 
+    .col-md-7.col-xs-12.pl-5
       .row
         .col-xs-12
-          .box-content.card
-            %h4.box-title
-              %i.fa.fa-user.ico>
-              About
+          .box-content
+            %h4.box-title.mb-4
+              %strong Personal data
             .card-content
               .row
                 .col-md-6
                   .row
                     .col-xs-5
-                      %label First Name:
-                    .col-xs-7 #{current_user.first_name}
+                      %label
+                        %i
+                          First Name: &nbsp &nbsp
+                    %strong.col-xs-7 #{@user.first_name}
                 .col-md-6
                   .row
                     .col-xs-5
-                      %label Last Name:
-                    .col-xs-7 #{current_user.last_name}
+                      %label
+                        %i
+                          Last Name:&nbsp &nbsp 
+                    %strong.col-xs-7 #{@user.last_name}
+                %br/
+                %br/
                 .col-md-6
                   .row
                     .col-xs-5
-                      %label Email:
-                    .col-xs-7 #{current_user.email}
+                      %label
+                        %i
+                          Email: &nbsp &nbsp
+                    %strong.col-xs-7 #{@user.email}
                 .col-md-6
                   .row
                     .col-xs-5
-                      %label Created At:
-                    .col-xs-7 #{current_user.created_at.to_date}
-                    .col-xs-7 #{current_user.created_at.strftime("%H:%M")}
+                      %label
+                        %i
+                          Created At: &nbsp &nbsp
+                    %strong.col-xs-7 #{@user.created_at.to_date} &nbsp
+                    %strong.col-xs-7 #{@user.created_at.strftime("%H:%M")}
+                %br/
+                %br/
+                %br/
                 .col-md-6
                   .row
                     .col-xs-5

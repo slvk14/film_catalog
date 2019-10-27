@@ -15,6 +15,7 @@ gem 'haml-rails', '~> 2.0'
 gem 'httparty', '~> 0.13.7'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
+gem "mini_magick"
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'popper_js', '~> 1.14.5'
 gem 'puma', '~> 3.11'
