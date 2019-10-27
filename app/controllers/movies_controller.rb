@@ -13,12 +13,15 @@ class MoviesController < ApplicationController
     authorize @movie
   end
 
-  # def api_search
-  #   @movie = OmdbClient.
-  # end
-
-  private 
-
-  def save_to_db
+  def destroy
+    @movie = Movie.find(params[:id])
+    authorize @movie
+    if @movie.delete
+      flash.now[:notice] = 'Movie deleted!'
+    else
+      flash.now[:error] = 'Failed to delete this movie!'
+    end
+    redirect_to root_path
   end
+
 end

@@ -15,10 +15,10 @@ class Admin::MoviesController < ApplicationController
     authorize @movie
     if @movie.save
       flash.now[:success] = 'Movie is saved!'
-      redirect_to admin_movies_path
+      redirect_to root_path
     else
       flash.now[:warning] = 'Movie is not saved!'
-      redirect_to admin_movies_path
+      redirect_to root_path
     end
   end
   

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[show update edit index]
 
-  resources :movies, only: %i[index new show] do
+  resources :movies, only: %i[index new show destroy] do
     resources :reviews
   end
 
