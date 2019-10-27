@@ -1,0 +1,27 @@
+#movies_index.container
+  .row
+    - @current_user.movies.each do |movie|
+      .col-md-3
+        .card.mb-4.shadow-sm
+          .img-fluid
+            = link_to image_tag(movie.poster_url, :class => 'movie_poster')
+          .card-body.my-0.py-0
+            %p.card-text
+              %h6
+                %strong
+                  = movie.title
+              %strong Genre: 
+              = movie.genre
+              %br/
+              %strong Year:
+              = movie.year
+              %br/
+              %strong Imdb rating:
+              = movie.imdb_rating
+              %br/
+              %strong Metascore rating:
+              = movie.metascore
+          .d-flex.justify-content-between.align-items-center.mt-0.pt-0
+            .btn-group
+              = link_to "Delete", movie_path(id: movie.id), method: :delete, class: "button btn btn-sm btn-outline-secondary"
+      

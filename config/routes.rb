@@ -17,6 +17,11 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :watch_later_movies, only: [:index] do
+    post :add_to_list
+    delete :remove_from_watch_later
+  end
+
   namespace :admin do
     resources :movies
     resources :reviews, only: [:index, :edit, :update, :destroy]

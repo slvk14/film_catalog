@@ -16,5 +16,7 @@
       %br/
       %strong Metascore rating:
       = @movie.metascore
-
+- if user_signed_in? 
+  = link_to "Watch later", watch_later_movie_add_to_list_path(@movie), method: :post, class: "button btn btn-sm btn-outline-secondary"
+      
       

@@ -5,7 +5,8 @@
 - if @movies
   .col-xl-6.col-12
   .box-content
-    %h4.box-title.text-center Movies
+    %h3.box-title.text-center.mb-4
+      %strong Movies
     %table.table.table-striped.margin-bottom-10
       %thead
         %tr
@@ -20,5 +21,5 @@
           %td 
             = movie["Year"]
           %td 
-            = link_to "Add to DB", root_path(id: movie['imdbID'])
+            = link_to "Add to DB", new_admin_movie_path(id: movie['imdbID'])
 
