@@ -1,6 +1,6 @@
 class Admin::MoviesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @movies = OmdbClient.instance.by_title(title: params[:title])['Search']
   end
@@ -19,12 +19,12 @@ class Admin::MoviesController < ApplicationController
       redirect_to root_path
     end
   end
-  
+
   def refresh_movies
     if ScheduledMovieReviewerJob.new.perform_now
       flash.now[:success] = 'Movies were updated'
       redirect_to root_path
-    else 
+    else
       flash.now[:warning] = 'Movies were not updated'
       redirect_to root_path
     end
@@ -33,8 +33,8 @@ class Admin::MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :genre, :year, 
-                 :release_date, :director, :actors, :plot, 
-                 :metascore, :imdb_rating, :imdb_id, :country, :poster_url)
+    params.require(:movie).permit(:title, :genre, :year,
+                                  :release_date, :director, :actors, :plot,
+                                  :metascore, :imdb_rating, :imdb_id, :country, :poster_url)
   end
 end

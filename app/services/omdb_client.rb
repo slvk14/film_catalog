@@ -14,7 +14,7 @@ class OmdbClient
   end
 
   private
-  
+
   def all(search_params = {})
     JSON.parse(RestClient.get(@root_url, params: search_params.merge!(base_params)))
   end

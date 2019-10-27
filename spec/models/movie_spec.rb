@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Movie, type: :model do
-
   context 'validation tests' do
     let!(:movie) { create(:movie) }
-    
+
     describe 'factory' do
       it { is_expected.to be_truthy }
-    end    
+    end
 
     describe 'title' do
       it { is_expected.to validate_presence_of(:first_name) }
@@ -26,7 +25,7 @@ RSpec.describe Movie, type: :model do
     end
 
     describe 'actors' do
-      it  { is_expected.to validate_presence_of(:actors) }
+      it { is_expected.to validate_presence_of(:actors) }
     end
 
     describe 'plot' do
@@ -43,6 +42,6 @@ RSpec.describe Movie, type: :model do
 
     describe 'metascore' do
       it { is_expected.to validate_presence_of(:metascore) }
-    end  
+    end
   end
 end

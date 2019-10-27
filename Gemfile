@@ -5,33 +5,33 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'blueprinter'
 gem 'bootsnap', require: false
 gem 'bootstrap', '~> 4.3.1'
 gem 'coffee-rails'
 gem 'devise'
+gem 'gravatar_image_tag'
 gem 'haml-rails', '~> 2.0'
+gem 'httparty', '~> 0.13.7'
 gem 'jbuilder', '~> 2.7'
 gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'gravatar_image_tag'
 gem 'popper_js', '~> 1.14.5'
 gem 'puma', '~> 3.11'
 gem 'pundit'
+gem 'r_creds', '~> 1.0'
 gem 'rails', '~> 6.0.0'
+gem 'rails-assets-font-awesome', '4.6.3', source: 'https://rails-assets.org'
+gem 'redis'
+gem 'rest-client'
 gem 'rubocop', require: false
 gem 'sass-rails', '~> 5'
+gem 'sidekiq'
+gem 'sidekiq-cron', '~> 1.1'
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
-gem 'r_creds', '~> 1.0'
-gem 'rest-client'
-gem 'httparty', '~> 0.13.7'
-gem 'blueprinter'
-gem 'rails-assets-font-awesome', '4.6.3', source: 'https://rails-assets.org'
-gem 'sidekiq'
-gem "sidekiq-cron", "~> 1.1"
-gem 'redis'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

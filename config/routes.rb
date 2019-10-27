@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'sidekiq/web'
 require 'sidekiq/cron/web'
 Rails.application.routes.draw do
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :movies
-    resources :reviews, only: [:index, :edit, :update, :destroy]
+    resources :reviews, only: %i[index edit update destroy]
     get '/refresh', to: 'movies#refresh_movies'
   end
 

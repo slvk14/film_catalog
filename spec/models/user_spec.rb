@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   context 'validation tests' do
     let!(:user) { create(:user) }
 
     describe 'factory' do
       it { is_expected.to be_truthy }
-    end    
+    end
 
     describe 'first_name' do
       it { is_expected.to validate_presence_of(:first_name) }
@@ -16,19 +15,19 @@ RSpec.describe User, type: :model do
     describe 'last_name' do
       it { is_expected.to validate_presence_of(:last_name) }
     end
-    
+
     describe 'email' do
-      it  { is_expected.not_to allow_value('blah').for(:email) }
+      it { is_expected.not_to allow_value('blah').for(:email) }
     end
-    
+
     describe 'correct email' do
       it { is_expected.to allow_value('a@b.com').for(:email) }
     end
 
     describe 'default role' do
-      it  { expect(user.role).to eq('customer') }
+      it { expect(user.role).to eq('customer') }
     end
-    
+
     it "might have 'admin' role" do
       user.admin!
       expect(user.role).to eq('admin')
