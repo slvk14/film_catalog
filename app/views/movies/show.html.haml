@@ -29,6 +29,10 @@
     %br/
     %strong Metascore rating:
     = @movie.metascore
+    %br/
+    - if @movie.reviews.present?
+      %strong Avarage user rating:
+      = Movie.average_rate(movie: @movie)
 - if user_signed_in?
   - unless current_user.movies.include?(@movie) 
     = link_to "Watch later", watch_later_movie_add_to_list_path(@movie), method: :post, class: "button btn btn-sm btn-outline-secondary"

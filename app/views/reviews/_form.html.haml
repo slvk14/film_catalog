@@ -1,6 +1,6 @@
 .card-content
   .form-group
     = simple_form_for [movie, review] do |f|
-      = f.input :rate      
+      = f.input :rate, collection: 1..10     
       = f.rich_text_area :content
       = f.button :submit, "Submit", class: "btn btn-primary waves-effect waves-light mt-2"    

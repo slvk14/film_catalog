@@ -15,4 +15,9 @@ class Movie < ApplicationRecord
       all
     end
   end
+
+  def self.average_rate(movie:)
+    @movie = movie
+    @movie.reviews.average(:rate).round(1)
+  end
 end
