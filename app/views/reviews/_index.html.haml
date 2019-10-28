@@ -20,12 +20,14 @@
             .fa.fa-circle.green-dot.my-auto.rating-dot
             .fa.fa-circle.green-dot.my-auto.rating-dot
             .fa.fa-circle.green-dot.my-auto.rating-dot
-            .fa.fa-circle.green-dot.my-auto.rating-dot
+            .fa.fa-circle.green-dot.my-auto.rating-dot       
             .green-text
               %h5.mb-0.pl-3 Comments:
           .row.pb-3
             %p 
               = review.content
+          .row
+            %h5.mb-0.pl-0.text-warning Rate: #{review.rate}
           .row.ml-1
             .row.bg-light.via
               .px-2
