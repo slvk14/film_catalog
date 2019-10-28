@@ -8,11 +8,11 @@ class Movie < ApplicationRecord
   validates :title, :year, :genre, :director, :actors,
             :plot, :country, :metascore, :imdb_rating, :imdb_id, :poster_url, presence: true
 
-  def self.search(search)
-    if search
-      find(:all, conditions: ['title LIKE ?', "%#{search}%"])
+  def self.search(title:)
+    if title
+      where('title LIKE ?', "%#{title}%")
     else
-      Movie.all
+      all
     end
   end
 end
