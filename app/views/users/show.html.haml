@@ -68,3 +68,36 @@
     .row
       .col.text-center
         = link_to "All Users", users_path, class: "button btn btn-sm btn-primary"
+  #review.container-fluid.px-0.py-5.mx-auto 
+  .row.justify-content-center.mx-0.mx-md-auto
+    .col-lg-10.col-md-11.px-1.px-sm-2
+      .card.border-0.px-3
+      - @user.reviews.each do |review|
+        .review.p-5
+          .row.d-flex
+            .profile-pic
+              - if review.user.avatar.attached?
+                = image_tag(review.user.avatar.variant(resize:'50x50'), class: 'rounded-circle img')
+              - else
+                %img{:height => "60px", :src => "https://www.seekpng.com/png/detail/115-1150053_avatar-png-transparent-png-royalty-free-default-user.png", :width => "60px"}/
+            .d-flex.flex-column.pl-3
+              %h4 
+                = review.user.first_name
+              %p.grey-text 
+                = review.created_at
+          .row.pb-3
+            .fa.fa-circle.green-dot.my-auto.rating-dot
+            .fa.fa-circle.green-dot.my-auto.rating-dot
+            .fa.fa-circle.green-dot.my-auto.rating-dot
+            .fa.fa-circle.green-dot.my-auto.rating-dot
+            .fa.fa-circle.green-dot.my-auto.rating-dot
+            .green-text
+              %h5.mb-0.pl-3 Comments:
+          .row.pb-3
+            %p 
+              = review.content
+          .row.ml-1
+            .row.bg-light.via
+              .px-2
+                %img{:height => "18px", :src => "https://i.imgur.com/8lJt6UN.png", :width => "18px"}/
+              %p.grey-text.mb-0.px-3 via Google
