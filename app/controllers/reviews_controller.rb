@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
     authorize @review
     if @review.save
       flash.now[:notice] = 'Review saved!'
-      redirect_to root_path
+      redirect_to movie_path(@movie.id)
     else
       flash.now[:error] = 'Failed to create a review!'
       render :new
