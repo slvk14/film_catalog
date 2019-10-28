@@ -7,6 +7,7 @@ class Movie < ApplicationRecord
 
   validates :title, :year, :genre, :director, :actors,
             :plot, :country, :metascore, :imdb_rating, :imdb_id, :poster_url, presence: true
+  validates :imdb_id, uniqueness: true
 
   def self.search(title:)
     if title
