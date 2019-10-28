@@ -1,13 +1,31 @@
-= simple_form_for :movie, url: {action: "create"} do |f|
-  = f.input :title, input_html: { value: @movie["Title"] }
-  = f.input :year, input_html: { value: @movie["Year"] }
-  = f.input :genre, input_html: { value: @movie["Genre"] }
-  = f.input :country, as: :text, input_html: { value: @movie["Country"] }
-  = f.input :director, input_html: { value: @movie["Director"] }
-  = f.input :actors, as: :text, input_html: { value: @movie["Actors"] }
-  = f.input :plot, as: :text, input_html: { value: @movie["Plot"] }
-  = f.input :metascore, input_html: { value: @movie["Metascore"] }
-  = f.input :imdb_rating, input_html: { value: @movie["imdbRating"] }
-  = f.input :imdb_id, as: :hidden, input_html: { value: @movie["imdbID"] }
-  = f.input :poster_url, as: :hidden, input_html: { value: @movie["Poster"] }
-  = f.button :submit, "Save", class: "btn-primary"
+.row.d-flex.justify-content-between
+  .col-md-3
+    .img-fluid
+      = image_tag(@movie["Poster"], height:445, width:300 )
+  .col-md-5
+    = simple_form_for :movie, url: {action: "create"} do |f|
+      .form-group.mb-0.pb-0
+        .row
+          .col-md-6
+            = f.input :title, input_html: { value: @movie["Title"] }
+          .col-md-6 
+            = f.input :year, input_html: { value: @movie["Year"] }
+      = f.input :genre, input_html: { value: @movie["Genre"] }
+      .form-group.mb-0.pb-0
+        .row
+          .col-md-6
+            = f.input :country, as: :text, input_html: { value: @movie["Country"] }
+          .col-md-6
+            = f.input :director, input_html: { value: @movie["Director"] }
+      = f.input :actors, as: :text, input_html: { value: @movie["Actors"] }
+      = f.input :plot, as: :text, input_html: { value: @movie["Plot"] }
+      .form-group
+        .row
+          .col-md-6
+            = f.input :imdb_rating, input_html: { value: @movie["imdbRating"] }
+          .col-md-6
+            = f.input :metascore, input_html: { value: @movie["Metascore"] }
+      = f.input :imdb_id, as: :hidden, input_html: { value: @movie["imdbID"] }
+      = f.input :poster_url, as: :hidden, input_html: { value: @movie["Poster"] }
+      .form-group.text-center
+        = f.button :submit, "Save", class: "btn-primary"
