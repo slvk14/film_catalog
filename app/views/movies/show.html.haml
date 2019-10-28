@@ -29,8 +29,9 @@
     %br/
     %strong Metascore rating:
     = @movie.metascore
-- if user_signed_in? 
-  = link_to "Watch later", watch_later_movie_add_to_list_path(@movie), method: :post, class: "button btn btn-sm btn-outline-secondary"
+- if user_signed_in?
+  - unless current_user.movies.include?(@movie) 
+    = link_to "Watch later", watch_later_movie_add_to_list_path(@movie), method: :post, class: "button btn btn-sm btn-outline-secondary"
   = render partial: "reviews/form", locals: {movie: @movie, review: Review.new}
   = render  partial: "reviews/index", locals: {movie: @movie} unless @movie.reviews.empty?
       

@@ -20,6 +20,9 @@
             = movie["Title"]
           %td 
             = movie["Year"]
-          %td 
-            = link_to "Add to DB", new_admin_movie_path(id: movie['imdbID'])
+          %td
+            - if Movie.all.pluck(:imdb_id).include? movie['imdbID']
+              %i Added
+            - else
+              = link_to "Add to DB", new_admin_movie_path(id: movie['imdbID'])
 

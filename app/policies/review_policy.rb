@@ -24,6 +24,6 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user.admin? || user.id == record.id
+    user.admin? || user.id == record.user_id
   end
 end

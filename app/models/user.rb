@@ -14,5 +14,11 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :email, presence: true
 
+  validates :imdb_id, uniqueness: true
+
   has_one_attached :avatar
+
+  def active_for_authentication?
+    super && active
+  end
 end

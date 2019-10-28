@@ -2,7 +2,6 @@
 
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
-  after_action :verify_authorized
 
   def index
     @reviews = movie.reviews
@@ -37,6 +36,7 @@ class ReviewsController < ApplicationController
   def update
     @movie = movie
     @review = @movie.reviews.find(params[:id])
+    authorize @movie
     authorize @review
     if @review.update(review_params)
       flash.now[:notice] = 'Review updated!'
