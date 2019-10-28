@@ -56,14 +56,15 @@
                   .row
                     .col-xs-5
                       = link_to "Edit Profile", edit_user_path, class: "button btn btn-sm btn-outline-secondary"
-                .col-md-6
-                  .row
-                    - if @user.active?
-                      .col-xs-5
-                        = link_to "Deactivate", user_path, method: :delete, class: "button btn btn-sm btn-danger"
-                    - else
-                      .col-xs-5
-                        = link_to "Activate", user_activate_path(user_id: @user.id), class: "button btn btn-sm btn-success"
+                - if current_user.admin? && !@user.admin?
+                  .col-md-6
+                    .row
+                      - if @user.active?
+                        .col-xs-5
+                          = link_to "Deactivate", user_path, method: :delete, class: "button btn btn-sm btn-danger"
+                      - else
+                        .col-xs-5
+                          = link_to "Activate", user_activate_path(user_id: @user.id), class: "button btn btn-sm btn-success"
   - if current_user.admin?
     .d-flex.justify-content-around
       .btn-group
