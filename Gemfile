@@ -18,7 +18,7 @@ gem 'jquery-rails'
 gem "mini_magick"
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'popper_js', '~> 1.14.5'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'pundit'
 gem 'r_creds', '~> 1.0'
 gem 'rails', '~> 6.0.0'
